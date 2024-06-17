@@ -1,0 +1,116 @@
+// -*- mode: jsonc -*-
+{
+    // "layer": "top", // Waybar at top layer
+    "position": "bottom", // Waybar position (top|bottom|left|right)
+    "height": 30, // Waybar height (to be removed for auto height)
+    "width": 1024, // Waybar width
+    "spacing": 4, // Gaps between modules (4px)
+    // Choose the order of the modules
+    "modules-left": [
+        "custom/poweroff",
+        "custom/cmus",
+    ],
+
+    "modules-center": [
+        "hyprland/workspaces"
+    ],
+
+    "modules-right": [
+        "tray",
+        "pulseaudio",
+        "network",
+        "custom/notification",
+        "clock",
+    ],
+
+
+    "clock": {
+        "interval": 60,
+        "format": "{:%H:%M}",
+        "max-length": 25
+    },
+
+
+    "network": {
+        "format-wifi": "",
+        "format-ethernet": "",
+        "format-linked": "",
+        "format-disconnected": "",
+        "on-click": "nm-connection-editor",
+    },
+
+    "pulseaudio": {
+        "format": "{icon}",
+        "format-muted": "",
+        "format-icons": {
+            "default": ["", ""]
+        },
+        "scroll-step": 2,
+        "on-click": "pavucontrol",
+        "on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+    },
+
+
+    "hyprland/workspaces": {
+        "format": "{name}: {icon}",
+        "format-icons": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": "",
+            "6": "",
+        },
+        "persistent-workspaces": {
+            "*": 6, // 5 workspaces by default on every monitor
+        }
+    },
+
+
+    "tray": {
+        "icon-size": 18,
+        "spacing": 10
+    },
+
+    "custom/cmus": {
+        "format": "♪ {}",
+        "max-length": 30,
+        "interval": 1,
+        "exec": "cmus-remote -C \"format_print '%a - %t'\"", 
+        "exec-if": "pgrep cmus",
+        "on-click": "cmus-remote -u",                       
+        "escape": true                                      
+    },
+
+    "custom/poweroff": {
+        "format": "",
+        "on-click": "tschuss",
+    },
+  
+  "custom/notification": {
+    "tooltip": false,
+    "format": "{icon}",
+    "format-icons": {
+      "notification": "<span foreground='#d79921'><sup></sup></span>",
+      "none": "",
+      "dnd-notification": "<span foreground='#d79921'><sup></sup></span>",
+      "dnd-none": "",
+      "inhibited-notification": "<span foreground='#d79921'><sup></sup></span>",
+      "inhibited-none": "",
+      "dnd-inhibited-notification": "<span foreground='#d79921'><sup></sup></span>",
+      "dnd-inhibited-none": ""
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true
+  },
+
+
+}
+
+
+
+

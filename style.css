@@ -1,0 +1,57 @@
+* {
+    /* `otf-font-awesome` is required to be installed for icons */
+    font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+    font-size: 15px;
+}
+
+window#waybar {
+    background: @theme_base_color;
+    border-bottom: 1px solid @unfocused_borders;
+    color: @theme_text_color;
+    border-radius: 10px;
+}
+
+.modules-right {
+    margin: 0px 10px 0 0;
+}
+.modules-center {
+    margin: 2px 0 0 0;
+}
+.modules-left {
+    margin: 2px 0 0 5px
+}
+
+#tray{}
+
+#clock{
+}
+
+#network{}
+
+#pulseaudio{
+	padding: 0 5px;
+}
+
+#pulseaudio.muted {
+    color: #fabd2f
+}
+
+#network.disconnected{
+    color: #fabd2f
+}
+
+#workspaces button.active{
+    color: #8ec07c
+}
+
+#custom-poweroff{
+    color: #fb4934;
+    padding: 0 5px;
+}
+
+#custom-cmus{}
+
+#custom-notification{
+    padding: 0 5px;
+}
+
